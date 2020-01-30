@@ -2,11 +2,12 @@ import cv2
 import numpy as np
 
 cap = cv2.VideoCapture('https://192.168.1.218:8080/video')
-
+propID = cap.get(4)
+print(propID)
 while(1):
 
     # Take each frame
-    _, frame = cap.read()
+    retVal, frame = cap.read()
 
     # Convert BGR to HSV
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
@@ -35,11 +36,20 @@ while(1):
     # Bitwise-AND mask and original image
     res = cv2.bitwise_and(frame,frame, mask= mask)
 
+    frame = cv2.line(frame,(0,0),(511,511),(255,0,0),5)
+    frame = cv2.rectangle(frame,(384,0),(510,128),(0,255,0),3)
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    cv2.putText(frame,'KuhRisp',(10,500), font, 4, (255,0,0),2,cv2.LINE_AA)
+
     cv2.imshow('frame',frame)
     cv2.imshow('mask',mask)
     cv2.imshow('res',res)
     k = cv2.waitKey(5) & 0xFF
+
     if k == 27:
         break
+    elif k == ord('s'): #press s to take
+        cv2.imwrite('test.png', res)
 
+cap.release()
 cv2.destroyAllWindows()
