@@ -38,7 +38,27 @@ OpenCV powered Color tracker using Android phone Camera
 
  * Follow the OpenCV instructions posted above and verify your installation has been successful via the following commands towards Python interpreter on your RPI terminal
 
- ``` import cv2
+ ``` 
+    import cv2
     cv2.__version__
 ```
-There you should see the version installed. If not, review instructions and find potential issue.
+
+- There you should see the version installed. If not, review instructions and find potential issue.
+
+- Use IPWebcam app to start a stream server
+    - Locate the IP address assigned after you start the server on your phone. Save this address.
+
+- As a true test for the installation, we use the following instructions to write a sample computer vision script for Python. We will make small edits to fit the Hardware we are using. Instructions for the basic setup can be found [here](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_colorspaces/py_colorspaces.html#converting-colorspaces). The changes that we will make will be the following:
+          
+    cap = cv2.VideoCapture(0) will instead refer to the ip address given to the WebCamera Stream such as 
+
+        - cap = cv2.VideoCapture('https://xxx.xxx.x.xxx:8080/video')
+
+
+- If this is successful, you should see 3 displays appear on the screen of the monitor connected to the pi. Each would be a replication of the stream/screen on your phone but with different filters. Try to use a blue item to test the Mask Image as it highlights the items of interest by color. And the verify the color you are capturing via the Res Image on the monitor.
+
+- After you are content with tests, install the Raspberry Pi into the Smart Touch Case and verify the screen's working condition.
+
+
+Author:
+Chris Perez
