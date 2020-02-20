@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-cap = cv2.VideoCapture('https://x:8080/video')
+cap = cv2.VideoCapture('https://x8:8080/video')
 propID = cap.get(4)
 print(propID)
 while(1):
@@ -43,11 +43,11 @@ while(1):
 
     # cv2.imshow('frame',frame)
     cv2.namedWindow('frame', cv2.WINDOW_NORMAL)
-    cv2.resizeWindow('frame', 600,600)
+    cv2.resizeWindow('frame', 300,300)
     cv2.namedWindow('mask', cv2.WINDOW_NORMAL)
-    cv2.resizeWindow('mask', 600,600)
+    cv2.resizeWindow('mask', 300,300)
     cv2.namedWindow('res', cv2.WINDOW_NORMAL)
-    cv2.resizeWindow('res', 600,600)
+    cv2.resizeWindow('res', 300,300)
 
     cv2.imshow('frame',frame)
     cv2.imshow('mask',mask)
