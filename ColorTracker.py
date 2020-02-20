@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-cap = cv2.VideoCapture('https://192.168.1.218:8080/video')
+cap = cv2.VideoCapture('https://x:8080/video')
 propID = cap.get(4)
 print(propID)
 while(1):
@@ -40,6 +40,14 @@ while(1):
     frame = cv2.rectangle(frame,(384,0),(510,128),(0,255,0),3)
     font = cv2.FONT_HERSHEY_SIMPLEX
     cv2.putText(frame,'KuhRisp',(10,500), font, 4, (255,0,0),2,cv2.LINE_AA)
+
+    # cv2.imshow('frame',frame)
+    cv2.namedWindow('frame', cv2.WINDOW_NORMAL)
+    cv2.resizeWindow('frame', 600,600)
+    cv2.namedWindow('mask', cv2.WINDOW_NORMAL)
+    cv2.resizeWindow('mask', 600,600)
+    cv2.namedWindow('res', cv2.WINDOW_NORMAL)
+    cv2.resizeWindow('res', 600,600)
 
     cv2.imshow('frame',frame)
     cv2.imshow('mask',mask)
