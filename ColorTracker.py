@@ -18,8 +18,8 @@ while(1):
     # plt.show()
 
     # Convert BGR to HSV
-    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    hsv2 = cv2.cvtColor(frame2, cv2.COLOR_BGR2HSV)
+    # hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+    # hsv2 = cv2.cvtColor(frame2, cv2.COLOR_BGR2HSV)
     # define range of blue color in HSV
         # green = np.uint8([[[0,255,0 ]]])
         # hsv_green = cv2.cvtColor(green,cv2.COLOR_BGR2HSV)
@@ -36,28 +36,28 @@ while(1):
 
 
     # Threshold the HSV image to get only blue colors
-    mask = cv2.inRange(hsv, lower_bound, upper_bound)
+    # mask = cv2.inRange(hsv, lower_bound, upper_bound)
 
 
     # mask = cv2.inRange(hsv, lower_green, upper_green)
 
     # Bitwise-AND mask and original image
-    res = cv2.bitwise_and(frame,frame, mask= mask)
+    # res = cv2.bitwise_and(frame,frame, mask= mask)
     
     # cv2.imshow('frame',frame)
     cv2.namedWindow('frame', cv2.WINDOW_NORMAL)
     cv2.resizeWindow('frame', 300,300)
     cv2.namedWindow('frame2', cv2.WINDOW_NORMAL)
     cv2.resizeWindow('frame2', 300,300)
-    cv2.namedWindow('mask', cv2.WINDOW_NORMAL)
-    cv2.resizeWindow('mask', 300,300)
-    cv2.namedWindow('res', cv2.WINDOW_NORMAL)
-    cv2.resizeWindow('res', 300,300)
+    # cv2.namedWindow('mask', cv2.WINDOW_NORMAL)
+    # cv2.resizeWindow('mask', 300,300)
+    # cv2.namedWindow('res', cv2.WINDOW_NORMAL)
+    # cv2.resizeWindow('res', 300,300)
 
     cv2.imshow('frame2',frame2)
     cv2.imshow('frame',frame)
-    cv2.imshow('mask',mask)
-    cv2.imshow('res',res)
+    # cv2.imshow('mask',mask)
+    # cv2.imshow('res',res)
 
 
     k = cv2.waitKey(5) & 0xFF
@@ -65,7 +65,7 @@ while(1):
     if k == 27:
         break
     elif k == ord('s'): #press s to take
-        cv2.imwrite('test.png', res)
+        cv2.imwrite('test.png', frame)
 
 
 
